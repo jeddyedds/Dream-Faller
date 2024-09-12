@@ -1,6 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbmjpd4mbju4t"]
+[gd_scene load_steps=6 format=3 uid="uid://dbmjpd4mbju4t"]
 
-[ext_resource type="Texture2D" uid="uid://i13wyeddtpjw" path="res://Dream portal.png" id="1_b6ogm"]
-[gd_scene format=3 uid="uid://iw6lya6hh0y3"]
+[ext_resource type="Texture2D" uid="uid://ddsoppoblhka5" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_jump.png" id="1_16vka"]
+[ext_resource type="Texture2D" uid="uid://ci0k7jico80hi" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_stand.png" id="2_mej35"]
+[ext_resource type="Texture2D" uid="uid://dtes66qkyy1ds" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_walk1.png" id="3_b8kq3"]
+[ext_resource type="Texture2D" uid="uid://cwlbseti4y3r" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_walk2.png" id="4_ayv1q"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1xld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_16vka")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mej35")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b8kq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ayv1q")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k1xld")
+animation = &"walk"
