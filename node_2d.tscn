@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://iw6lya6hh0y3"]
+
+[ext_resource type="Texture2D" uid="uid://i13wyeddtpjw" path="res://Dream portal.png" id="1_b6ogm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(167, 240)
+scale = Vector2(0.57068, 0.57569)
+texture = ExtResource("1_b6ogm")
