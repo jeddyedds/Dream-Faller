@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://btbw7nykq3xne"]
+
+[ext_resource type="Texture2D" uid="uid://djdq7u8ntn5xa" path="res://pixel-sky-backgrounds-byCaniaEast/nightbackgroundwithmoon.png" id="1_r1l4i"]
+
+[node name="Background" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Nightbackgroundwithmoon" type="Sprite2D" parent="."]
+position = Vector2(371, 421.75)
+scale = Vector2(1, 1.15169)
+texture = ExtResource("1_r1l4i")
