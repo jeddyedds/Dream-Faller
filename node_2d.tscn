@@ -1,52 +1,75 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbmjpd4mbju4t"]
+[gd_scene load_steps=12 format=3 uid="uid://dbmjpd4mbju4t"]
 
-[ext_resource type="Texture2D" uid="uid://ddsoppoblhka5" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_jump.png" id="1_16vka"]
-[ext_resource type="Texture2D" uid="uid://ci0k7jico80hi" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_stand.png" id="2_mej35"]
-[ext_resource type="Texture2D" uid="uid://dtes66qkyy1ds" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_walk1.png" id="3_b8kq3"]
-[ext_resource type="Texture2D" uid="uid://cwlbseti4y3r" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_walk2.png" id="4_ayv1q"]
+[ext_resource type="Texture2D" uid="uid://d2g7jn8rj3g00" path="res://character falling frame 1.svg" id="1_ch7im"]
+[ext_resource type="Texture2D" uid="uid://bmtglto4puyv8" path="res://character falling frame 2.svg" id="2_t0qpx"]
+[ext_resource type="Texture2D" uid="uid://esgu7uss8dno" path="res://character idle frame 1.svg" id="3_mt410"]
+[ext_resource type="Texture2D" uid="uid://cjtwgc4oc1bdk" path="res://character idle frame 2.svg" id="4_5hc0b"]
+[ext_resource type="Texture2D" uid="uid://cjmwvh6xn44hp" path="res://character walking left frame 1.svg" id="4_fc1hv"]
+[ext_resource type="Texture2D" uid="uid://cioy51b8hyxaj" path="res://character walking left frame 2.svg" id="5_52qya"]
+[ext_resource type="Texture2D" uid="uid://cqvn2m0awtobk" path="res://character idle frame 3.svg" id="5_f6pip"]
+[ext_resource type="Texture2D" uid="uid://b8a6t0sql0qbw" path="res://character walking right frame 1.svg" id="6_1hpor"]
+[ext_resource type="Texture2D" uid="uid://f2b2lyc12wxh" path="res://character idle frame 4.svg" id="6_4bt6a"]
+[ext_resource type="Texture2D" uid="uid://ddkt4lj42uisj" path="res://character walking right frame 2.svg" id="7_uy81k"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k1xld"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_jh5cg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_16vka")
+"texture": ExtResource("1_ch7im")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t0qpx")
 }],
 "loop": true,
-"name": &"fall",
+"name": &"falling",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mej35")
+"texture": ExtResource("3_mt410")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5hc0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f6pip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4bt6a")
 }],
 "loop": true,
-"name": &"stand",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_b8kq3")
+"texture": ExtResource("4_fc1hv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ayv1q")
+"texture": ExtResource("5_52qya")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1hpor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uy81k")
+}],
+"loop": true,
+"name": &"walk_right",
 "speed": 5.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vdww0"]
-radius = 43.0
-height = 150.0
 
 [node name="Player" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_k1xld")
-animation = &"stand"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 56)
-shape = SubResource("CapsuleShape2D_vdww0")
+position = Vector2(386, 416)
+sprite_frames = SubResource("SpriteFrames_jh5cg")
+animation = &"idle"
+frame_progress = 0.405061
