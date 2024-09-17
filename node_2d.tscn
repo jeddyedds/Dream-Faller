@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbmjpd4mbju4t"]
+[gd_scene load_steps=7 format=3 uid="uid://dbmjpd4mbju4t"]
 
 [ext_resource type="Texture2D" uid="uid://ddsoppoblhka5" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_jump.png" id="1_16vka"]
 [ext_resource type="Texture2D" uid="uid://ci0k7jico80hi" path="res://kenney_platformer-pack-redux/PNG/Players/128x256/Pink/alienPink_stand.png" id="2_mej35"]
@@ -35,9 +35,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vdww0"]
+radius = 43.0
+height = 150.0
+
 [node name="Player" type="Area2D"]
+scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k1xld")
-animation = &"fall"
+animation = &"stand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 56)
+shape = SubResource("CapsuleShape2D_vdww0")
