@@ -8,3 +8,4 @@
 [node name="background" parent="." instance=ExtResource("1_7qmxa")]
 
 [node name="Spawner" parent="." instance=ExtResource("2_fl5hs")]
+position = Vector2(231, 833)
