@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://1kpbg20iy3"]
+[gd_scene load_steps=3 format=3 uid="uid://1kpbg20iy3"]
 
 [ext_resource type="Texture2D" uid="uid://cdgspca7cy1nd" path="res://kenney_jumper-pack/PNG/Enemies/cloud.png" id="1_gdhq1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks03b"]
+radius = 28.8172
+height = 263.467
 
 [node name="Cloud" type="Node2D"]
 
@@ -8,3 +12,10 @@
 z_index = 1
 scale = Vector2(0.432692, 0.347015)
 texture = ExtResource("1_gdhq1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Enemy Cloud"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Cloud/StaticBody2D"]
+position = Vector2(0, 31.6989)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ks03b")
