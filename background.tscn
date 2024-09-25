@@ -1,12 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://btbw7nykq3xne"]
+[gd_scene load_steps=5 format=3 uid="uid://btbw7nykq3xne"]
 
 [ext_resource type="Texture2D" uid="uid://djdq7u8ntn5xa" path="res://pixel-sky-backgrounds-byCaniaEast/nightbackgroundwithmoon.png" id="1_l2ei4"]
+[ext_resource type="PackedScene" uid="uid://c7wft6upgf4wi" path="res://scrolling_background.tscn" id="2_4dxrb"]
 
-[node name="background" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="Shader" id="Shader_4h8g4"]
+code = "shader_type canvas_item;
+
+uniform float scroll_speed;
+
+void fragment() {
+	vec2 u = UV;
+	u.y += scroll_speed * TIME;
+	vec4 col = texture(TEXTURE, u);
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xdjw1"]
+resource_local_to_scene = true
+shader = SubResource("Shader_4h8g4")
+shader_parameter/scroll_speed = 0.01
+
+[node name="background" type="Node2D"]
 
 [node name="Nightbackgroundwithmoon" type="Sprite2D" parent="."]
-position = Vector2(371, 421.75)
-scale = Vector2(1, 1.15169)
+visible = false
+position = Vector2(250, 588.375)
+scale = Vector2(0.488281, 1.55371)
+texture = ExtResource("1_l2ei4")
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("2_4dxrb")]
+material = SubResource("ShaderMaterial_xdjw1")
+offset_right = 1024.0
+offset_bottom = 879.0
 texture = ExtResource("1_l2ei4")
