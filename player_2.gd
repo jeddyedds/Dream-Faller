@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 signal onCloud
 
 @export var speed = 400
