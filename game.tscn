@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dde57yh3v2jdq"]
+[gd_scene load_steps=4 format=3 uid="uid://dde57yh3v2jdq"]
 
 [ext_resource type="PackedScene" uid="uid://btbw7nykq3xne" path="res://background.tscn" id="1_7qmxa"]
 [ext_resource type="PackedScene" uid="uid://by5cclfc807mu" path="res://spawner.tscn" id="2_fl5hs"]
+
+[sub_resource type="Curve2D" id="Curve2D_fullq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 750, 0, 0, 0, 0, 499, 751, 0, 0, 0, 0, 0, 756, 0, 0, 0, 0, 0, 756, 0, 0, 0, 0, 0, 756, 0, 0, 0, 0, 0, 756, 0, 0, 0, 0, 2, 750)
+}
+point_count = 7
 
 [node name="Game" type="Node2D"]
 
@@ -9,3 +15,10 @@
 
 [node name="Spawner" parent="." instance=ExtResource("2_fl5hs")]
 position = Vector2(231, 833)
+
+[node name="CloudPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fullq")
+
+[node name="CloudLocation" type="PathFollow2D" parent="CloudPath"]
+position = Vector2(2, 750)
+rotation = 0.00201207
