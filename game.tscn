@@ -17,8 +17,10 @@ point_count = 7
 position = Vector2(231, 833)
 
 [node name="CloudPath" type="Path2D" parent="."]
+visible = false
 curve = SubResource("Curve2D_fullq")
 
 [node name="CloudLocation" type="PathFollow2D" parent="CloudPath"]
+visible = false
 position = Vector2(2, 750)
 rotation = 0.00201207
