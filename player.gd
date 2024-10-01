@@ -16,6 +16,13 @@ func _ready():
 func _process(delta):
 	var velocity = Vector2.ZERO
 	
+	# if on cloud
+		# set velocity.y to velocity of cloud
+	# else
+		# velocity.y = 0.5
+	
+	velocity.y = 0.5
+	
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		if Input.is_action_pressed("move_left"):
@@ -68,15 +75,10 @@ func _process(delta):
 		
 
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		velocity = velocity * speed
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
 
-
 	
-
-
-func _on_body_entered(body: Node2D) -> void:
-	onCloud 

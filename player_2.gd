@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 signal onCloud
 
 @export var speed = 400
@@ -16,7 +16,9 @@ func _ready():
 func _process(delta):
 	var velocity = Vector2.ZERO
 	
+	
 	if Input.is_action_pressed("move_right"):
+		add_constant_central_force(Vector2(1, 0))
 		velocity.x += 1
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= 2
@@ -76,7 +78,3 @@ func _process(delta):
 
 
 	
-
-
-func _on_body_entered(body: Node2D) -> void:
-	onCloud 

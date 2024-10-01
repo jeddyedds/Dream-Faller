@@ -83,5 +83,3 @@ animation = &"walk_left"
 position = Vector2(-2, -2)
 scale = Vector2(8.52393, 6.72155)
 shape = SubResource("CapsuleShape2D_q8rf8")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
