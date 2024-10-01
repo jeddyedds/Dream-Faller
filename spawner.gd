@@ -9,8 +9,6 @@ extends Node2D
 
 var random_scene = RandomNumberGenerator.new()
 var selected_scene_index = 0
-#var random_x = RandomNumberGenerator.new()
-#var abc = random_x.randf_range(0, 500)
 
 func _on_timer_timeout() -> void:
 	random_scene.randomize()

@@ -1,9 +1,10 @@
 extends Node2D
+var random = RandomNumberGenerator.new()
 
-@export var scroll_speed = 2.0
+@export var scroll_speed = randf_range(0.5, 4.0) #2.0
 
 func _ready() -> void:
-	pass # Replace with function body.
+	self.position.x = randf_range(0, 550)
 
 func move():
 	self.position.y-=scroll_speed
