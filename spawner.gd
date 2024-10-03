@@ -2,10 +2,10 @@ extends Node2D
 
 @export var scenes :Array [PackedScene]
 
-#func _ready():
-	#for scene in scenes:
-		#var tmp = scene.instantiate()
-		#add_child(tmp)
+func _ready():
+	for scene in scenes:
+		var tmp = scene.instantiate()
+		add_child(tmp)
 
 var random_scene = RandomNumberGenerator.new()
 var selected_scene_index = 0

@@ -8,3 +8,6 @@ func _ready() -> void:
 
 func move():
 	self.position.y-=scroll_speed
+	
+func getSpeed():
+	return scroll_speed

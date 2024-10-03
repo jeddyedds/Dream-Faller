@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dde57yh3v2jdq"]
+[gd_scene load_steps=8 format=3 uid="uid://dde57yh3v2jdq"]
 
 [ext_resource type="PackedScene" uid="uid://btbw7nykq3xne" path="res://background.tscn" id="1_7qmxa"]
 [ext_resource type="Script" path="res://game.gd" id="1_av3i4"]
 [ext_resource type="PackedScene" uid="uid://1kpbg20iy3" path="res://cloud.tscn" id="2_8u4sp"]
 [ext_resource type="PackedScene" uid="uid://by5cclfc807mu" path="res://spawner.tscn" id="2_fl5hs"]
 [ext_resource type="PackedScene" uid="uid://c6lq326ajl8nq" path="res://player.tscn" id="5_nv5ti"]
+[ext_resource type="PackedScene" uid="uid://dptf2sdunbwla" path="res://test_character.tscn" id="6_ycj06"]
 
 [sub_resource type="Curve2D" id="Curve2D_fullq"]
 _data = {
@@ -32,3 +33,6 @@ position = Vector2(2, 750)
 rotation = 0.00201207
 
 [node name="Player" parent="." instance=ExtResource("5_nv5ti")]
+visible = false
+
+[node name="Test Character" parent="." instance=ExtResource("6_ycj06")]

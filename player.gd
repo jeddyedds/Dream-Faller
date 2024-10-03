@@ -2,7 +2,9 @@ extends Area2D
 signal onCloud
 
 @export var speed = 400
+
 var screen_size
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -81,4 +83,8 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
 
+
+#func _on_body_entered(body):
+	#var velocity
+	#velocity.y = body.ScrollMovement.getSpeed()
 	
