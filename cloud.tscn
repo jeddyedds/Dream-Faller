@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cdgspca7cy1nd" path="res://kenney_jumper-pack/PNG/Enemies/cloud.png" id="1_gdhq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sltyp"]
-size = Vector2(251.667, 31.185)
+size = Vector2(248.334, 31.185)
 
 [node name="Cloud" type="Node2D"]
 script = ExtResource("1_0ywnn")
@@ -18,7 +18,7 @@ texture = ExtResource("1_gdhq1")
 [node name="StaticBody2D" type="StaticBody2D" parent="Enemy Cloud"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Cloud/StaticBody2D"]
-position = Vector2(-2.50001, 31.185)
+position = Vector2(-0.833259, 31.185)
 shape = SubResource("RectangleShape2D_sltyp")
 one_way_collision = true
 one_way_collision_margin = 18.0

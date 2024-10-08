@@ -14,10 +14,12 @@ _data = {
 point_count = 7
 
 [node name="Game" type="Node2D"]
+position = Vector2(38, 0)
 script = ExtResource("1_av3i4")
 spawner = ExtResource("2_8u4sp")
 
 [node name="background" parent="." instance=ExtResource("1_7qmxa")]
+position = Vector2(-42, 0)
 
 [node name="Spawner" parent="." instance=ExtResource("2_fl5hs")]
 position = Vector2(0, 850)
@@ -36,3 +38,5 @@ rotation = 0.00201207
 visible = false
 
 [node name="Test Character" parent="." instance=ExtResource("6_ycj06")]
+position = Vector2(228, 11)
+scale = Vector2(0.5, 0.5)
