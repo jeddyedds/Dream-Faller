@@ -45,16 +45,15 @@ func _ready():
 func _process(delta):
 	var velocity = Vector2.ZERO
 	
-	# if on cloud
-		# set velocity.y to velocity of cloud
-	# else
-		# velocity.y = 0.5
-	
 	
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= 2
+	
+	
+	if Input.is_action_just_released("move_right"):
+		velocity.x -= 1
 	
 	
 	if Input.is_action_pressed("move_left"):
@@ -63,53 +62,38 @@ func _process(delta):
 			velocity.x += 2
 		
 		
-	if Input.is_action_just_released("move_right"):
-		velocity.x -= 1
-		# if on cloud
-			# $AnimatedSprite2D.animation = "idle"
-		# else
-			# $AnimatedSprite2D.animation = "falling"
-	
-	
-	#if Input.is_action_pressed("move_left"):
-		#velocity.x -= 1
-		#if Input.is_action_pressed("move_right"):
-			#velocity.x += 1
-		
 	if Input.is_action_just_released("move_left"):
 		velocity.x += 1
-		# if on cloud
-			# $AnimatedSprite2D.animation = "idle"
-		# else
-			# $AnimatedSprite2D.animation = "falling"
+		
+		
 		
 	#if up is pressed
 		#if player is on cloud
 		#velocity.y -= 1
 		#set animation to falling
 			
-			
-	if velocity.x == -1:
-		# if on cloud
-		$AnimatedSprite2D.animation = "walk_left"
-		
-			
-			
-	if velocity.x == 1:
-		#if on cloud
-		$AnimatedSprite2D.animation = "walk_right"
 		
 
 	if velocity.length() > 0:
 		velocity = velocity * speed
 		
-	
-	if (position.y < currYPosition):
+	# if on cloud and not moving
+	if (position.y < currYPosition && velocity.x == 0):
 		if ($AnimatedSprite2D.animation != "idle"):
 			$AnimatedSprite2D.animation = "idle"
-	else:
-		$AnimatedSprite2D.animation = "falling"
+			
+	#if on cloud and moving
+	if (position.y < currYPosition && velocity.x < 0):
+		if ($AnimatedSprite2D.animation != "walk_left"):
+			$AnimatedSprite2D.animation = "walk_left"
+	if (position.y < currYPosition && velocity.x > 0):
+		if ($AnimatedSprite2D.animation != "walk_right"):
+			$AnimatedSprite2D.animation = "walk_right"
 	
+	# if falling
+	if (position.y > currYPosition):
+		if ($AnimatedSprite2D.animation != "falling"):
+			$AnimatedSprite2D.animation = "falling"
 	
 	
 	position += velocity * delta
