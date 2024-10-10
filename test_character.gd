@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -4
 
 @export var speed = 400
 var screen_size
 var currYPosition
+var jumpFrame = 10
 
 
 func _physics_process(delta: float) -> void:
@@ -15,7 +16,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y += JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+	move_and_slide();
 	
 
 
@@ -65,11 +66,18 @@ func _process(delta):
 	if Input.is_action_just_released("move_left"):
 		velocity.x += 1
 		
-		
+	if (Input.is_action_just_pressed("jump") && jumpFrame == 10 && position.y < currYPosition):
+		jumpFrame = 0;
+		if (position.y < currYPosition):
+			velocity.y += JUMP_VELOCITY
+			jumpFrame = jumpFrame + 1
+			
+	if (jumpFrame < 10):
+		velocity.y = JUMP_VELOCITY -2
+		jumpFrame = jumpFrame + 1
 		
 	#if up is pressed
 		#if player is on cloud
-		#velocity.y -= 1
 		#set animation to falling
 			
 		
@@ -100,6 +108,8 @@ func _process(delta):
 	position.x = clamp(position.x, -25, screen_size.x-50)
 	
 	currYPosition = position.y
+	
+	move_and_slide()
 	
 	
 
