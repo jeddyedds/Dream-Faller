@@ -1,7 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://btbw7nykq3xne"]
 
-[ext_resource type="Texture2D" uid="uid://djdq7u8ntn5xa" path="res://pixel-sky-backgrounds-byCaniaEast/nightbackgroundwithmoon.png" id="1_l2ei4"]
 [ext_resource type="PackedScene" uid="uid://c7wft6upgf4wi" path="res://scrolling_background.tscn" id="2_4dxrb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iqv2j"]
+load_path = "res://.godot/imported/background.svg-53fb7c947d842b0a6976740fde04115a.ctex"
 
 [sub_resource type="Shader" id="Shader_4h8g4"]
 code = "shader_type canvas_item;
@@ -26,10 +28,10 @@ shader_parameter/scroll_speed = 0.01
 visible = false
 position = Vector2(250, 588.375)
 scale = Vector2(0.488281, 1.55371)
-texture = ExtResource("1_l2ei4")
+texture = SubResource("CompressedTexture2D_iqv2j")
 
 [node name="ScrollingBackground" parent="." instance=ExtResource("2_4dxrb")]
 material = SubResource("ShaderMaterial_xdjw1")
 offset_right = 1024.0
 offset_bottom = 879.0
-texture = ExtResource("1_l2ei4")
+texture = SubResource("CompressedTexture2D_iqv2j")
