@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0slxi68uvmqk"]
+
+[ext_resource type="Texture2D" uid="uid://djdq7u8ntn5xa" path="res://pixel-sky-backgrounds-byCaniaEast/nightbackgroundwithmoon.png" id="1_qn112"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhwtf"]
+bg_color = Color(0.856293, 0.573509, 0.215798, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.750564, 0.421495, 0.213349, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n41o0"]
+bg_color = Color(0.957434, 0.695217, 0.394115, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.837528, 0.491791, 0.273094, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kfyv"]
+bg_color = Color(0.769271, 0.506722, 0.16603, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.643635, 0.351363, 0.164478, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_ia62k"]
+Button/styles/hover = SubResource("StyleBoxFlat_lhwtf")
+Button/styles/normal = SubResource("StyleBoxFlat_n41o0")
+Button/styles/pressed = SubResource("StyleBoxFlat_7kfyv")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 862.0
+texture = ExtResource("1_qn112")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 449.0
+offset_right = 160.0
+offset_bottom = 480.0
+scale = Vector2(6.24, 4.48)
+focus_mode = 0
+theme = SubResource("Theme_ia62k")
+text = "PLAY!"

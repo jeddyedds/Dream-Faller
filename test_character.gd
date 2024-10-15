@@ -73,7 +73,7 @@ func _process(delta):
 			jumpFrame = jumpFrame + 1
 			
 	if (jumpFrame < 10):
-		velocity.y = JUMP_VELOCITY -2
+		velocity.y = JUMP_VELOCITY - 1
 		jumpFrame = jumpFrame + 1
 		
 	#if up is pressed
