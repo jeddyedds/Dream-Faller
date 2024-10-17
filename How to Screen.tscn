@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://kclcdrb4o1vh"]
+
+[ext_resource type="Texture2D" uid="uid://djdq7u8ntn5xa" path="res://pixel-sky-backgrounds-byCaniaEast/nightbackgroundwithmoon.png" id="1_lk8a3"]
+[ext_resource type="Script" path="res://how_to_screen.gd" id="1_ti1v6"]
+[ext_resource type="FontFile" uid="uid://d2eixol2v0ekd" path="res://Gruppo-Regular.ttf" id="3_dihsp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tioc5"]
+bg_color = Color(0.856293, 0.573509, 0.215798, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.750564, 0.421495, 0.213349, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5lo6"]
+bg_color = Color(0.957434, 0.695217, 0.394115, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.837528, 0.491791, 0.273094, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7kfm"]
+bg_color = Color(0.769271, 0.506722, 0.16603, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.643635, 0.351363, 0.164478, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_ndgqc"]
+Button/styles/hover = SubResource("StyleBoxFlat_tioc5")
+Button/styles/normal = SubResource("StyleBoxFlat_b5lo6")
+Button/styles/pressed = SubResource("StyleBoxFlat_y7kfm")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ti1v6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 862.0
+texture = ExtResource("1_lk8a3")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 115.0
+offset_top = 652.0
+offset_right = 224.0
+offset_bottom = 683.0
+scale = Vector2(3, 4.48)
+focus_mode = 0
+theme = SubResource("Theme_ndgqc")
+text = "BACK"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 184.0
+offset_right = 188.0
+offset_bottom = 276.0
+scale = Vector2(2.94667, 4.46526)
+theme_override_fonts/font = ExtResource("3_dihsp")
+text = "Use arrow keys or WASD to help your dreaming character jump on clouds and avoid falling."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

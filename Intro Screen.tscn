@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0slxi68uvmqk"]
+[gd_scene load_steps=8 format=3 uid="uid://b0slxi68uvmqk"]
 
+[ext_resource type="Script" path="res://intro_screen.gd" id="1_5exsj"]
 [ext_resource type="Texture2D" uid="uid://djdq7u8ntn5xa" path="res://pixel-sky-backgrounds-byCaniaEast/nightbackgroundwithmoon.png" id="1_qn112"]
+[ext_resource type="FontFile" uid="uid://d2eixol2v0ekd" path="res://Gruppo-Regular.ttf" id="3_0q1gl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhwtf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w431r"]
 bg_color = Color(0.856293, 0.573509, 0.215798, 0.823529)
 border_width_bottom = 3
 border_color = Color(0.750564, 0.421495, 0.213349, 0.823529)
@@ -11,7 +13,7 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n41o0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26hmy"]
 bg_color = Color(0.957434, 0.695217, 0.394115, 0.823529)
 border_width_bottom = 3
 border_color = Color(0.837528, 0.491791, 0.273094, 0.823529)
@@ -21,7 +23,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kfyv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph86e"]
 bg_color = Color(0.769271, 0.506722, 0.16603, 0.823529)
 border_width_bottom = 3
 border_color = Color(0.643635, 0.351363, 0.164478, 0.823529)
@@ -31,9 +33,9 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="Theme" id="Theme_ia62k"]
-Button/styles/hover = SubResource("StyleBoxFlat_lhwtf")
-Button/styles/normal = SubResource("StyleBoxFlat_n41o0")
-Button/styles/pressed = SubResource("StyleBoxFlat_7kfyv")
+Button/styles/hover = SubResource("StyleBoxFlat_w431r")
+Button/styles/normal = SubResource("StyleBoxFlat_26hmy")
+Button/styles/pressed = SubResource("StyleBoxFlat_ph86e")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -42,6 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5exsj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -49,13 +52,51 @@ offset_right = 1024.0
 offset_bottom = 862.0
 texture = ExtResource("1_qn112")
 
-[node name="Button" type="Button" parent="."]
+[node name="Play Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 109.0
-offset_top = 449.0
-offset_right = 160.0
-offset_bottom = 480.0
+offset_left = 116.0
+offset_top = 493.0
+offset_right = 167.0
+offset_bottom = 524.0
 scale = Vector2(6.24, 4.48)
 focus_mode = 0
 theme = SubResource("Theme_ia62k")
-text = "PLAY!"
+text = "PLAY"
+
+[node name="How to Play Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 644.0
+offset_right = 227.0
+offset_bottom = 675.0
+scale = Vector2(3, 2.92)
+focus_mode = 0
+theme = SubResource("Theme_ia62k")
+text = "HOW TO PLAY"
+
+[node name="Credits Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 747.0
+offset_right = 227.0
+offset_bottom = 778.0
+scale = Vector2(3, 2.88)
+focus_mode = 0
+theme = SubResource("Theme_ia62k")
+text = "CREDITS"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 173.0
+offset_right = 212.0
+offset_bottom = 208.0
+scale = Vector2(2.6, 5.48)
+theme_override_fonts/font = ExtResource("3_0q1gl")
+theme_override_font_sizes/font_size = 31
+text = "Dream Faller"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Play Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="How to Play Button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="Credits Button" to="." method="_on_credits_button_pressed"]

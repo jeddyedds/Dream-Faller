@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://3lsm7h4habl0"]
+
+[ext_resource type="Script" path="res://credits_screen.gd" id="1_5mx5i"]
+[ext_resource type="Texture2D" uid="uid://djdq7u8ntn5xa" path="res://pixel-sky-backgrounds-byCaniaEast/nightbackgroundwithmoon.png" id="1_go6tg"]
+[ext_resource type="FontFile" uid="uid://d2eixol2v0ekd" path="res://Gruppo-Regular.ttf" id="2_2jo4i"]
+[ext_resource type="Script" path="res://back.gd" id="4_31faq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhwtf"]
+bg_color = Color(0.856293, 0.573509, 0.215798, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.750564, 0.421495, 0.213349, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n41o0"]
+bg_color = Color(0.957434, 0.695217, 0.394115, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.837528, 0.491791, 0.273094, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kfyv"]
+bg_color = Color(0.769271, 0.506722, 0.16603, 0.823529)
+border_width_bottom = 3
+border_color = Color(0.643635, 0.351363, 0.164478, 0.823529)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_i3mbx"]
+Button/styles/hover = SubResource("StyleBoxFlat_lhwtf")
+Button/styles/normal = SubResource("StyleBoxFlat_n41o0")
+Button/styles/pressed = SubResource("StyleBoxFlat_7kfyv")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5mx5i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 862.0
+texture = ExtResource("1_go6tg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 268.0
+offset_right = 192.0
+offset_bottom = 360.0
+scale = Vector2(2.94667, 4.46526)
+theme_override_fonts/font = ExtResource("2_2jo4i")
+text = "CREDITS:
+Micah Terry & Jackson Edds are the amazing developers of this game."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Back" type="Button" parent="."]
+offset_left = 115.0
+offset_top = 652.0
+offset_right = 224.0
+offset_bottom = 683.0
+scale = Vector2(3, 4.48)
+focus_mode = 0
+theme = SubResource("Theme_i3mbx")
+text = "BACK"
+script = ExtResource("4_31faq")
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
