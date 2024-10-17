@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -4
 @export var speed = 400
 var screen_size
 var currYPosition
-var jumpFrame = 10
+var jumpFrame = 20
 
 
 func _physics_process(delta: float) -> void:
@@ -66,15 +66,20 @@ func _process(delta):
 	if Input.is_action_just_released("move_left"):
 		velocity.x += 1
 		
-	if (Input.is_action_just_pressed("jump") && jumpFrame == 10 && position.y < currYPosition):
+	if (Input.is_action_just_pressed("jump") && jumpFrame == 20 && position.y < currYPosition):
 		jumpFrame = 0;
-		if (position.y < currYPosition):
-			velocity.y += JUMP_VELOCITY
-			jumpFrame = jumpFrame + 1
-			
-	if (jumpFrame < 10):
-		velocity.y = JUMP_VELOCITY - 1
+		velocity.y += JUMP_VELOCITY
 		jumpFrame = jumpFrame + 1
+			
+	if (jumpFrame < 20):
+		velocity.y = JUMP_VELOCITY + (0.001 * jumpFrame)
+		jumpFrame = jumpFrame + 1
+		if (jumpFrame == 20):
+			velocity.y = 0
+			
+			
+	
+		
 		
 	#if up is pressed
 		#if player is on cloud

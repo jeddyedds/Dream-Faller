@@ -65,9 +65,9 @@ text = "PLAY"
 
 [node name="How to Play Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 118.0
+offset_left = 113.0
 offset_top = 644.0
-offset_right = 227.0
+offset_right = 222.0
 offset_bottom = 675.0
 scale = Vector2(3, 2.92)
 focus_mode = 0
@@ -76,9 +76,9 @@ text = "HOW TO PLAY"
 
 [node name="Credits Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 118.0
+offset_left = 115.0
 offset_top = 747.0
-offset_right = 227.0
+offset_right = 224.0
 offset_bottom = 778.0
 scale = Vector2(3, 2.88)
 focus_mode = 0
