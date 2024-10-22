@@ -55,9 +55,9 @@ texture = ExtResource("1_qn112")
 [node name="Play Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 116.0
-offset_top = 493.0
+offset_top = 416.0
 offset_right = 167.0
-offset_bottom = 524.0
+offset_bottom = 447.0
 scale = Vector2(6.24, 4.48)
 focus_mode = 0
 theme = SubResource("Theme_ia62k")
@@ -66,9 +66,9 @@ text = "PLAY"
 [node name="How to Play Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 113.0
-offset_top = 644.0
+offset_top = 582.0
 offset_right = 222.0
-offset_bottom = 675.0
+offset_bottom = 613.0
 scale = Vector2(3, 2.92)
 focus_mode = 0
 theme = SubResource("Theme_ia62k")
@@ -77,9 +77,9 @@ text = "HOW TO PLAY"
 [node name="Credits Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 115.0
-offset_top = 747.0
+offset_top = 696.0
 offset_right = 224.0
-offset_bottom = 778.0
+offset_bottom = 727.0
 scale = Vector2(3, 2.88)
 focus_mode = 0
 theme = SubResource("Theme_ia62k")

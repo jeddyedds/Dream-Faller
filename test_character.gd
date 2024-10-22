@@ -6,7 +6,9 @@ const JUMP_VELOCITY = -4
 @export var speed = 400
 var screen_size
 var currYPosition
+var currVelocity
 var jumpFrame = 20
+var justLanded = true
 
 
 func _physics_process(delta: float) -> void:
@@ -70,6 +72,7 @@ func _process(delta):
 		jumpFrame = 0;
 		velocity.y += JUMP_VELOCITY
 		jumpFrame = jumpFrame + 1
+		$JumpingSound.play()
 			
 	if (jumpFrame < 20):
 		velocity.y = JUMP_VELOCITY + (0.001 * jumpFrame)
@@ -90,6 +93,17 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity * speed
 		
+	# if just landed on cloud
+	if (position.y < currYPosition && justLanded):
+		$LandingSound.play()
+		justLanded = false
+	
+	if (position.y > currYPosition):
+		justLanded = true
+		
+		
+	
+	
 	# if on cloud and not moving
 	if (position.y < currYPosition && velocity.x == 0):
 		if ($AnimatedSprite2D.animation != "idle"):
@@ -113,6 +127,7 @@ func _process(delta):
 	position.x = clamp(position.x, -25, screen_size.x-50)
 	
 	currYPosition = position.y
+	currVelocity = velocity.y
 	
 	move_and_slide()
 	

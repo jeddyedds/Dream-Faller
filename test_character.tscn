@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dptf2sdunbwla"]
+[gd_scene load_steps=16 format=3 uid="uid://dptf2sdunbwla"]
 
 [ext_resource type="Script" path="res://test_character.gd" id="1_qfe2k"]
 [ext_resource type="Texture2D" uid="uid://d2g7jn8rj3g00" path="res://character falling frame 1.svg" id="2_ak3c6"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cioy51b8hyxaj" path="res://character walking left frame 2.svg" id="9_8txlx"]
 [ext_resource type="Texture2D" uid="uid://b8a6t0sql0qbw" path="res://character walking right frame 1.svg" id="10_sfbsv"]
 [ext_resource type="Texture2D" uid="uid://ddkt4lj42uisj" path="res://character walking right frame 2.svg" id="11_qpedi"]
+[ext_resource type="AudioStream" uid="uid://j028aeo5m4dn" path="res://Audio/footstep_snow_001.ogg" id="12_rsxsj"]
+[ext_resource type="AudioStream" uid="uid://c2shhsawcqkue" path="res://Audio/phaserUp7.ogg" id="13_mnsbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82wxp"]
 size = Vector2(14.9981, 29.8035)
@@ -81,3 +83,9 @@ position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_6xgpi")
 animation = &"idle"
 frame_progress = 0.370743
+
+[node name="LandingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_rsxsj")
+
+[node name="JumpingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_mnsbd")
